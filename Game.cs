@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,9 @@ namespace menuForRogulike
     {
         public void Start()
         {
-            Title = "Рот того шатал, Рогалик";
+            Title = "A fucking roguelike";
             RunMainMenu();
-            
+
         }
         private void RunMainMenu()
         {
@@ -26,10 +26,10 @@ namespace menuForRogulike
  \        / (:   _) \ (:      ""| /   /  \\  \|    \    \ | 
   \""_____/   \_______) \_______)(___/    \___)\___|\____\) 
                                                            
-Шалом, рады видеть тебя в нашем Рог, блять, алике.
-(для управления в меню стрелку вниз-вверх тыкай, не заблудишься. Enter - )";
-            string[] options = { "Play","Save Game", "Load Game", "Learning", "Setting","About of creaters", "Exit"};
-            Menu mainMenu = new Menu(prompt,options);
+Hey, glad to see you in our Rogu, fucking, like.
+(to control the menu, use the down-up arrow to push, you won't get lost. Enter - to choose)";
+            string[] options = { "Play", "Save Game", "Load Game", "Learning", "Setting", "About of creaters", "Exit" };
+            Menu mainMenu = new Menu(prompt, options);
             int selectedIndex = mainMenu.Run();
             switch (selectedIndex)
             {
@@ -37,15 +37,21 @@ namespace menuForRogulike
                     RunGame();
                     break;
                 case 1:
-                    Learning();
+                    SaveGame();
                     break;
                 case 2:
-                    DisplayOptionsMenu();
+                    LoadGame();
                     break;
                 case 3:
-                    DisplayAboutInfo();
+                    Learning();
                     break;
                 case 4:
+                    DisplayOptionsMenu();
+                    break;
+                case 5:
+                    DisplayAboutInfo();
+                    break;
+                case 6:
                     ExitGame();
                     break;
             }
@@ -53,27 +59,55 @@ namespace menuForRogulike
         }
         private void RunGame()
         {
-            
+
         }
         private void DisplayOptionsMenu()
         {
             string prompt = "Here you can customize the game for yourself";
             string[] options = { "Sound settings", "Control Settings", "Back to menu" };
-            Menu optionsMenu = new Menu(prompt,options);
+            Menu optionsMenu = new Menu(prompt, options);
             int selectedIndex = optionsMenu.Run();
-            switch(selectedIndex) 
+            switch (selectedIndex)
             {
-
+                case 0:
+                    openSoundSettings();
+                    break;
+                case 1:
+                    openControlSettings();
+                    break;
+                case 2:
+                    RunMainMenu();
+                    break;
             }
         }
         private void Learning()
         {
-            Clear();
-            WriteLine($"Аптечка {'+'} - hill from 15 to 50 хп\n" +
-                $"Топор {'þ'} - на карте 1 топор. Damage - 30, blocking - 20, stun percentage - 50, прочность - 15\n" +
-                $"Кемпинговая лампа {'Ì'} - there are at least 5 pieces on the map. Blocking - 10, +3 visibility cells, прочность - 3\n" +
-                $"Зажигалка {'§'} - Базовый предмет. +2 visibility cells\n" +
-                $"");
+            string prompt = (@"Medicine {+} - hill from 15 to 50 hp
+Axe {p} - Damage - 30, blocking - 20. Stun percentage - 50, durability - 15
+Camping Lamp {|} - Blocking - 10, +3 visibility cells, durability - 3
+Lighter {§} - Basic subject. +2 visibility cells
+Flashlight {[} - +5 visibility cells
+Branch {o} - Damage - 10, blocking - 5. Stun percentage - 25, durability - 2
+Scrap {f} - Opens doors and drawers in 3 moves
+Pipe {Ø} - Damage - 15, blocking - 15. Stun percentage - 35, durability - 7
+Bottle {o} - Damage - 20, blocking - 0. Stun percentage - 30, durability - 2
+Bit {/} - Damage - 20, blocking 20. Stun percentage - 40, durability - 12
+Revolver {¬} - Damage - 50, blocking - 6 bullets per map. It can be used in the presence of ammo
+Shotgun {¤} - Damage - 250, blocking - 2 bullets per map. It can be used in the presence of ammo
+Shaverma {~} - unknown bullshit
+Motorcycle helmet {D} - Blocking - 20. Durability - 15
+Jacket {U} - Blocking - 5. Durability - 10
+Vest {S} - Blocking - 8. Durability - 8
+Helmet {N} - Blocking - 10. Durability - 15");
+            string[] options = { "<<Back to menu>>" };
+            Menu learningMenu = new Menu(prompt, options);
+            int selectedIndex = learningMenu.Run();
+            switch (selectedIndex)
+            {
+                case 0:
+                    RunMainMenu();
+                    break;
+            }
         }
         private void DisplayAboutInfo()
         {
@@ -88,16 +122,85 @@ namespace menuForRogulike
             switch (selectedIndex)
             {
                 case 0:
-                RunMainMenu();
-                break;
-            }   
+                    RunMainMenu();
+                    break;
+            }
         }
         private void ExitGame()
         {
             Clear();
-            WriteLine("\nНажми куда-нибудь для выхода");
+            WriteLine("\nPress any key");
             ReadKey(true);
             Environment.Exit(0);
+        }
+        private void SaveGame()
+        {
+            string prompt = "";
+            string[] options = { "First case", "Back to menu" };
+            Menu saveMenu = new Menu(prompt, options);
+            int selectedIndex = saveMenu.Run();
+            switch (selectedIndex)
+            {
+                case 0:
+
+                    break;
+                case 1:
+                    RunMainMenu();
+                    break;
+            }
+        }
+        private void LoadGame()
+        {
+            string prompt = "";
+            string[] options = { "First case", "Back to menu" };
+            Menu loadMenu = new Menu(prompt, options);
+            int selectedIndex = loadMenu.Run();
+            switch (selectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    RunMainMenu();
+                    break;
+            }
+        }
+        private void openSoundSettings()
+        {
+            string prompt = "Here you can adjust the volume level";
+            string[] options = { "High", "Medium", "Low", "Back to settings" };
+            Menu soundMenu = new Menu(prompt, options);
+            int selectedIndex = soundMenu.Run();
+            switch (selectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    DisplayOptionsMenu();
+                    break;
+            }
+        }
+        private void openControlSettings()
+        {
+            string prompt = "Here you can configure the controls";
+            string[] options = { " ", " ", " ", "Back to settings" };
+            Menu soundMenu = new Menu(prompt, options);
+            int selectedIndex = soundMenu.Run();
+            switch (selectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    DisplayOptionsMenu();
+                    break;
+            }
         }
     }
 }
