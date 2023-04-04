@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,15 +18,19 @@ namespace menuForRogulike
         private void RunMainMenu()
         {
             string prompt = @"
-    ______    ______    _______       __      _____  ___   
-   /    "" \  /"" _  ""\  /""     ""|     /""""\    (\""   \|""  \  
-  // ____  \(: ( \___)(: ______)    /    \   |.\\   \    | 
- /  /    ) :)\/ \      \/    |     /' /\  \  |: \.   \\  | 
-(: (____/ // //  \ _   // ___)_   //  __'  \ |.  \    \. | 
- \        / (:   _) \ (:      ""| /   /  \\  \|    \    \ | 
-  \""_____/   \_______) \_______)(___/    \___)\___|\____\) 
+ ▒█████   ▄████▄  ▓█████ ▄▄▄       ███▄    █ 
+▒██▒  ██▒▒██▀ ▀█  ▓█   ▀▒████▄     ██ ▀█   █ 
+▒██░  ██▒▒▓█    ▄ ▒███  ▒██  ▀█▄  ▓██  ▀█ ██▒
+▒██   ██░▒▓▓▄ ▄██▒▒▓█  ▄░██▄▄▄▄██ ▓██▒  ▐▌██▒
+░ ████▓▒░▒ ▓███▀ ░░▒████▒▓█   ▓██▒▒██░   ▓██░
+░ ▒░▒░▒░ ░ ░▒ ▒  ░░░ ▒░ ░▒▒   ▓▒█░░ ▒░   ▒ ▒ 
+  ░ ▒ ▒░   ░  ▒    ░ ░  ░ ▒   ▒▒ ░░ ░░   ░ ▒░
+░ ░ ░ ▒  ░           ░    ░   ▒      ░   ░ ░ 
+    ░ ░  ░ ░         ░  ░     ░  ░         ░ 
+         ░                                   
+
                                                            
-Hey, glad to see you in our Rogu, fucking, like.
+Hey, glad to see you in our Rog, fucking, ulike.
 (to control the menu, use the down-up arrow to push, you won't get lost. Enter - to choose)";
             string[] options = { "Play", "Save Game", "Load Game", "Learning", "Setting", "About of creaters", "Exit" };
             Menu mainMenu = new Menu(prompt, options);
@@ -59,7 +63,18 @@ Hey, glad to see you in our Rogu, fucking, like.
         }
         private void RunGame()
         {
-
+            string prompt = "Get ready to rip your ass";
+            string[] options = { "Play to game", "Back to menu" };
+            Menu runMenu = new Menu(prompt, options);
+            int selectedIndex = runMenu.Run();
+            switch(selectedIndex) 
+            {
+                case 0:
+                    break;
+                case 1:
+                    RunMainMenu();
+                    break;
+            }
         }
         private void DisplayOptionsMenu()
         {
@@ -204,3 +219,4 @@ Helmet {N} - Blocking - 10. Durability - 15");
         }
     }
 }
+

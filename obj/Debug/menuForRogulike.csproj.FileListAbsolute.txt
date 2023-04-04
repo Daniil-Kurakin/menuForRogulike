@@ -1,0 +1,8 @@
+C:\Users\kurak\source\repos\menuForRogulike\obj\Debug\menuForRogulike.csproj.AssemblyReference.cache
+C:\Users\kurak\source\repos\menuForRogulike\obj\Debug\menuForRogulike.csproj.SuggestedBindingRedirects.cache
+C:\Users\kurak\source\repos\menuForRogulike\obj\Debug\menuForRogulike.csproj.CoreCompileInputs.cache
+C:\Users\kurak\source\repos\menuForRogulike\bin\Debug\menuForRogulike.exe.config
+C:\Users\kurak\source\repos\menuForRogulike\bin\Debug\menuForRogulike.exe
+C:\Users\kurak\source\repos\menuForRogulike\bin\Debug\menuForRogulike.pdb
+C:\Users\kurak\source\repos\menuForRogulike\obj\Debug\menuForRogulike.exe
+C:\Users\kurak\source\repos\menuForRogulike\obj\Debug\menuForRogulike.pdb
